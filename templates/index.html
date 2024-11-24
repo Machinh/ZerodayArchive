@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZeroDay Archive</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>ZeroDay Archive</h1>
+    <h2>Exploits disponíveis</h2>
+    <ul>
+        {% for exploit in exploits %}
+        <li>
+            <a href="{{ url_for('exploit_detail', exploit_id=exploit['id']) }}">
+                {{ exploit['title'] }}
+            </a> - {{ exploit['date'] }}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
